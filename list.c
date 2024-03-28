@@ -103,7 +103,14 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-    return NULL;
+  void* data = list->current->data;
+  if(list->current->prev) list->current->prev->next = list->current->next;
+  if(list->current->next) list->current->next->prev = list->current->prev;
+  if(list->current == list->head) list->head = list->current->next;
+  if(list->current == list->tail) list->tail = list->current->prev;
+  free(list->current);
+  list->current = NULL;
+  return data;
 }
 
 void cleanList(List * list) {
