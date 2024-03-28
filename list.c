@@ -72,7 +72,11 @@ void pushFront(List * list, void * data) {
     list->head->prev = new_nodo;
   list->head = new_nodo;
   if(list->tail == NULL) 
+  {
     list->tail = new_nodo;
+    list->tail->next = new_nodo;
+  }
+
   
   
   
