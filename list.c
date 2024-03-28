@@ -56,6 +56,7 @@ void * lastList(List * list) {
   list->current = aux;
   if(list->current) 
     return list->current->data;
+  return NULL;
 }
 
 void * prevList(List * list) {
